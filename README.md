@@ -11,6 +11,20 @@
 
 [grafana docker image](https://hub.docker.com/r/grafana/grafana-arm32v7-linux) for ARM 32 bit v7
 
+sudo pip3 install adafruit-circuitpython-sht4x
+sudo pip3 install adafruit-circuitpython-veml7700
+
+mkdir DataVisual
+cd DataVisual
+sudo nano docker-compose.yml
+sudo docker compose up -d
+
+sudo docker exec -it influxdb influx
+CREATE DATABASE sensor_data
+
+cd ../Documents
+nano sensors.py
+
 
 sudo nano /etc/systemd/system/dataCollection.service
 sudo systemctl daemon-reload
