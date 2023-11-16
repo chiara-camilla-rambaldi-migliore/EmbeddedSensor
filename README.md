@@ -9,3 +9,12 @@
 
 
 
+[grafana docker image](https://hub.docker.com/r/grafana/grafana-arm32v7-linux) for ARM 32 bit v7
+
+
+sudo nano /etc/systemd/system/dataCollection.service
+sudo systemctl daemon-reload
+sudo systemctl start dataCollection
+sudo systemctl status dataCollection
+sudo systemctl enable dataCollection
+

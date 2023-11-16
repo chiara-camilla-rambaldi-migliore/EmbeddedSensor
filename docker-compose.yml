@@ -1,0 +1,29 @@
+version: '3.6'
+
+networks:
+  default:
+    driver: bridge
+    ipam:
+      driver: default
+services:
+  influxdb:
+      container_name: influxdb
+      image: influxdb:1.8   
+      restart: unless-stopped
+      volumes:
+        - /home/pi/DataVisual/influxdb/config.yml:/etc/influxdb/config.yml
+        - /home/pi/DataVisual/influxdb/data:/var/lib/influxdb 
+        - /home/pi/DataVisual/influxdb/db:/var/lib/influxdb/backup
+      ports:
+        - "8086:8086"
+
+  grafana:
+    container_name: grafana
+    image: grafana/grafana-arm32v7-linux
+    restart: unless-stopped
+    user: "0"
+    ports:
+      - "3000:3000"
+    volumes:
+      - /home/pi/DataVisual/grafana/log:/var/log/grafana   
+      - /home/pi/DataVisual/grafana/data:/var/lib/grafana 
