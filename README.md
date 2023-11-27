@@ -18,6 +18,7 @@ mkdir DataVisual
 cd DataVisual
 sudo nano docker-compose.yml
 sudo docker compose up -d
+docker-compose ps #to see if its working
 
 sudo docker exec -it influxdb influx
 CREATE DATABASE sensor_data
